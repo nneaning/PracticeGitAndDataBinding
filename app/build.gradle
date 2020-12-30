@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    /*TODO step1 kotlin kapt 추가하기
+    *  코틀린 어노테이션을 사용하기 위함*/
 }
 
 android {
@@ -30,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    /*TODO step2 DataBinding 활성화 하기*/
 }
 
 dependencies {

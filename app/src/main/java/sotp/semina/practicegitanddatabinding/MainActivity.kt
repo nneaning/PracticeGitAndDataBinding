@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.bumptech.glide.Glide
-
+/*TODO step4 데이터 바인딩 직접 적용해보기.*/
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
