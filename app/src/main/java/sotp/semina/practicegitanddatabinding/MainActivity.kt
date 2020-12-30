@@ -2,11 +2,8 @@ package sotp.semina.practicegitanddatabinding
 
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,26 +12,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
-        /*TODO step4 아래 내용들을 데이터 클래스로 변경.*/
-        initProfileImage(binding.imageProfileImage)
-        setProfileName(binding.textProfileName, DEFAULT_USER_NAME)
+        binding.userProfile = UserData(IMAGE_URL, DEFAULT_USER_NAME)
         addButtonClickEvent(binding)
     }
 
-    private fun initProfileImage(profileImage: ImageView) {
-        Glide.with(this)
-            .load(IMAGE_URL)
-            .into(profileImage)
-    }
-
-    private fun setProfileName(profileName: TextView, content: String) {
-        profileName.text = content
+    private fun setProfileName(binding: ActivityMainBinding, content: String) {
+        binding.userProfile = UserData(IMAGE_URL,content)
     }
 
     private fun addButtonClickEvent(binding: ActivityMainBinding) {
         binding.buttonProfileChangeButton.setOnClickListener {
             setProfileName(
-                binding.textProfileName,
+                binding,
                 getEditTextToString(binding.inputChangedProfile)
             )
         }

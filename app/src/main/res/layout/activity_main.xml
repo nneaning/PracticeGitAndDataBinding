@@ -3,9 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--TODO Step1 데이터 클래스를 추가해주세요.-->
+    <data>
+        <variable
+            name="userProfile"
+            type="sotp.semina.practicegitanddatabinding.UserData" />
+    </data>
 
-    <!--TODO Step2 추가한 데이터 클래스를 뷰에 결합합니다.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +19,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="100dp"
+            app:image="@{userProfile.userImage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,6 +32,7 @@
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:text="@{userProfile.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
