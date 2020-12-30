@@ -1,46 +1,51 @@
 package sotp.semina.practicegitanddatabinding
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-/*TODO step4 데이터 바인딩 직접 적용해보기.*/
+import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initView()
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        /*TODO step4 아래 내용들을 데이터 클래스로 변경.*/
+        initProfileImage(binding.imageProfileImage)
+        setProfileName(binding.textProfileName, DEFAULT_USER_NAME)
+        addButtonClickEvent(binding)
     }
 
-    private fun initView() {
-        initProfileImage()
-        setProfileName(DEFAULT_USER_NAME)
-        addButtonClickEvent()
-    }
-
-    private fun initProfileImage() {
+    private fun initProfileImage(profileImage: ImageView) {
         Glide.with(this)
             .load(IMAGE_URL)
-            .into(findViewById(R.id.image_profile_image))
+            .into(profileImage)
     }
 
-    private fun setProfileName(content:String) {
-        findViewById<TextView>(R.id.text_profile_name).text = content
+    private fun setProfileName(profileName: TextView, content: String) {
+        profileName.text = content
     }
 
-    private fun addButtonClickEvent() {
-        findViewById<Button>(R.id.button_profile_change_button).setOnClickListener {
-            setProfileName(getEditTextToString(findViewById(R.id.input_changed_profile)))
+    private fun addButtonClickEvent(binding: ActivityMainBinding) {
+        binding.buttonProfileChangeButton.setOnClickListener {
+            setProfileName(
+                binding.textProfileName,
+                getEditTextToString(binding.inputChangedProfile)
+            )
         }
     }
 
-    private fun getEditTextToString(content:EditText):String = content.text.toString()
+    private fun getEditTextToString(content: EditText): String = content.text.toString()
 
 
     companion object {
-        private const val IMAGE_URL = "https://avatars3.githubusercontent.com/u/45380072?s=460&u=b9fc82996ec2cc568a7dfcbf8846944dc16a7ccd&v=4"
+        private const val IMAGE_URL =
+            "https://avatars3.githubusercontent.com/u/45380072?s=460&u=b9fc82996ec2cc568a7dfcbf8846944dc16a7ccd&v=4"
         private const val DEFAULT_USER_NAME = "Default User Name"
     }
 }
