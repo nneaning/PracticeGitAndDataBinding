@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         binding.userProfile = UserData(IMAGE_URL,content)
     }
 
+    /*TODO step3 해당 함수를 버튼이 클릭 되었을때 어떤 일이 일어날지 수정합시다.
+    *  필요시 다른 함수를 수정해야함.*/
     private fun addButtonClickEvent(binding: ActivityMainBinding) {
         binding.buttonProfileChangeButton.setOnClickListener {
             setProfileName(

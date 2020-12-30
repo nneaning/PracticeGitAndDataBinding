@@ -7,6 +7,8 @@
         <variable
             name="userProfile"
             type="sotp.semina.practicegitanddatabinding.UserData" />
+
+        <!--TODO step1 변수로 Activity를 결합합니다.-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,6 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_profile_name" />
 
+        <!--TODO step2 결합한 Activity의 함수를 onClick에 결합합니다.-->
         <Button
             android:id="@+id/button_profile_change_button"
             android:layout_width="match_parent"
