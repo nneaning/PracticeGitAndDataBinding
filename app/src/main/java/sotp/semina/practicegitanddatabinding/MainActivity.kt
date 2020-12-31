@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.userProfile = UserData(IMAGE_URL, DEFAULT_USER_NAME)
+        /*TODO step3 유저 데이터를 binding 변수에 넣어서 뷰에서 사용할 수 있도록 합니다.*/
         addButtonClickEvent(binding)
     }
 
