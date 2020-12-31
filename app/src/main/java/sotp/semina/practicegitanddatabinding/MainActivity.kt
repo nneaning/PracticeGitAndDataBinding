@@ -3,6 +3,7 @@ package sotp.semina.practicegitanddatabinding
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
 
@@ -12,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
-        /*TODO step3 유저 데이터를 binding 변수에 넣어서 뷰에서 사용할 수 있도록 합니다.*/
+
+        binding.userProfile = UserData(IMAGE_URL, DEFAULT_USER_NAME)
         addButtonClickEvent(binding)
     }
 
