@@ -32,10 +32,11 @@
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:text="@{userProfile.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
-            tools:text="@{userProfile.userName}" />
+            tools:text="profile name" />
 
         <EditText
             android:id="@+id/input_changed_profile"
