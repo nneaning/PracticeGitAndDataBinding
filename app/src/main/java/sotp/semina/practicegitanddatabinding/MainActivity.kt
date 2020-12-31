@@ -5,14 +5,23 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-/*TODO step4 데이터 바인딩 직접 적용해보기.*/
+import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
+
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding.main = this
+
         initView()
-        /*asdfasdfasdfasdffadf*/
+
     }
 
     private fun initView() {
@@ -24,16 +33,16 @@ class MainActivity : AppCompatActivity() {
     private fun initProfileImage() {
         Glide.with(this)
             .load(IMAGE_URL)
-            .into(findViewById(R.id.image_profile_image))
+            .into(binding.imageProfileImage)
     }
 
     private fun setProfileName(content:String) {
-        findViewById<TextView>(R.id.text_profile_name).text = content
+        binding.textProfileName.text = content
     }
 
     private fun addButtonClickEvent() {
-        findViewById<Button>(R.id.button_profile_change_button).setOnClickListener {
-            setProfileName(getEditTextToString(findViewById(R.id.input_changed_profile)))
+        binding.buttonProfileChangeButton.setOnClickListener {
+            setProfileName(getEditTextToString(binding.inputChangedProfile))
         }
     }
 
