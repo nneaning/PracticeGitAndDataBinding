@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/image_profile_image"
+            showImage="@{userProfile.userImage}"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="100dp"
-            app:image="@{userProfile.userImage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

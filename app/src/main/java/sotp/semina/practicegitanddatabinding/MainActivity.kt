@@ -3,21 +3,26 @@ package sotp.semina.practicegitanddatabinding
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var bindingAdapter: BindingAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
+
         binding.userProfile = UserData(IMAGE_URL, DEFAULT_USER_NAME)
         addButtonClickEvent(binding)
     }
 
     private fun setProfileName(binding: ActivityMainBinding, content: String) {
         binding.userProfile = UserData(IMAGE_URL,content)
+
     }
 
     private fun addButtonClickEvent(binding: ActivityMainBinding) {
