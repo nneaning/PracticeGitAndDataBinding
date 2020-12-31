@@ -9,4 +9,13 @@ import com.bumptech.glide.Glide
 * 뷰에서 사용할 어트리뷰트 이름은 image로 합니다.*/
 object BindingAdapter {
 
+
+    @JvmStatic
+    @BindingAdapter("showImage")
+    fun showImage(view: ImageView, imageUrl: String){
+        Glide.with(view.context)
+            .load(imageUrl)
+            .into(view)
+    }
+
 }

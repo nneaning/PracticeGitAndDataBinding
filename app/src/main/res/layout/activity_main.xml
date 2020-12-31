@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!--TODO step1 데이터 클래스 결합-->
+        <variable
+            name="userProfile"
+            type="sotp.semina.practicegitanddatabinding.UserData" />
     </data>
 
-    <!--TODO step3 아래를 유저 데이터로 결합해주세요-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,6 +16,7 @@
 
         <ImageView
             android:id="@+id/image_profile_image"
+            showImage="@{userProfile.userImage}"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="100dp"
@@ -33,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
-            tools:text="profile name" />
+            tools:text="@{userProfile.userName}" />
 
         <EditText
             android:id="@+id/input_changed_profile"
