@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="userProfile"
             type="sotp.semina.practicegitanddatabinding.UserData" />
 
-        <!--TODO step1 변수로 Activity를 결합합니다.-->
+        <variable
+            name="mainActivity"
+            type="sotp.semina.practicegitanddatabinding.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,9 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:text="@{userProfile.userName}"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:text="@{userProfile.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
@@ -47,11 +50,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:text="@={mainActivity.editText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_profile_name" />
 
-        <!--TODO step2 결합한 Activity의 함수를 onClick에 결합합니다.-->
         <Button
             android:id="@+id/button_profile_change_button"
             android:layout_width="match_parent"
@@ -59,9 +62,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:onClick="@{()->mainActivity.changeUserNameEvent()}"
+            android:text="Change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Change"
             app:layout_constraintTop_toBottomOf="@+id/input_changed_profile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
