@@ -12,37 +12,28 @@ import com.bumptech.glide.Glide
 import sotp.semina.practicegitanddatabinding.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    var profilename = "profileName"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.mainActivity = this
-        initView()
+        val binding : ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        initProfileImage(binding.imageProfileImage)
+        setProfileName(binding.textProfileName, DEFAULT_USER_NAME)
+        addButtonClickEvent(binding)
     }
 
-    private fun initView() {
-        initProfileImage()
-        setProfileName(DEFAULT_USER_NAME)
-        addButtonClickEvent()
-    }
-
-
-    private fun initProfileImage() {
-        Glide.with(this)
+    private fun initProfileImage(imageView: ImageView) {
+        Glide.with(imageView.context)
             .load(IMAGE_URL)
-            .into(binding.imageProfileImage)
+            .into(imageView)
     }
 
-    private fun setProfileName(content:String) {
-        profilename = content
-        binding.invalidateAll()
+    private fun setProfileName(profileName:TextView, content:String) {
+        profileName.text = content
     }
 
-    private fun addButtonClickEvent() {
+    private fun addButtonClickEvent(binding : ActivityMainBinding) {
         binding.buttonProfileChangeButton.setOnClickListener {
-            setProfileName(getEditTextToString(findViewById(R.id.input_changed_profile)))
+            setProfileName(binding.textProfileName, getEditTextToString(binding.inputChangedProfile))
         }
     }
 

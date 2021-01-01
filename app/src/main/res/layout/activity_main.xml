@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
-            tools:text="@{mainActivity.profilename}" />
+            tools:text="Profile Name" />
 
         <EditText
             android:id="@+id/input_changed_profile"
