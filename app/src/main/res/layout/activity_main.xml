@@ -8,7 +8,9 @@
             name="userProfile"
             type="sotp.semina.practicegitanddatabinding.UserData" />
 
-        <!--TODO step1 변수로 Activity를 결합합니다.-->
+        <variable
+            name="activity"
+            type="sotp.semina.practicegitanddatabinding.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,9 +42,10 @@
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
             tools:text="profile name" />
 
-        <!--TODO step5 양방향 데이터 결합-->
+
         <EditText
             android:id="@+id/input_changed_profile"
+            android:text="@={activity.editText}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,7 +55,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_profile_name" />
 
-        <!--TODO step6 결합한 Activity의 함수를 onClick에 결합합니다.-->
+
         <Button
             android:id="@+id/button_profile_change_button"
             android:layout_width="match_parent"
@@ -63,6 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="Change"
+            android:onClick="@{()->activity.changeName()}"
             app:layout_constraintTop_toBottomOf="@+id/input_changed_profile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
