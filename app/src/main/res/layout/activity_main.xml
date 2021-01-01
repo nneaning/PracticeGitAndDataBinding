@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="userProfile"
             type="sotp.semina.practicegitanddatabinding.UserData" />
 
         <variable
-            name="mainActivity"
+            name="activity"
             type="sotp.semina.practicegitanddatabinding.MainActivity" />
     </data>
 
@@ -35,25 +34,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{userProfile.userName}"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:text="@{userProfile.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_profile_image"
             tools:text="profile name" />
 
+
         <EditText
             android:id="@+id/input_changed_profile"
+            android:text="@={activity.editText}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@={mainActivity.editText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_profile_name" />
+
 
         <Button
             android:id="@+id/button_profile_change_button"
@@ -62,10 +63,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{()->mainActivity.changeUserNameEvent()}"
-            android:text="Change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:text="Change"
+            android:onClick="@{()->activity.changeName()}"
             app:layout_constraintTop_toBottomOf="@+id/input_changed_profile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

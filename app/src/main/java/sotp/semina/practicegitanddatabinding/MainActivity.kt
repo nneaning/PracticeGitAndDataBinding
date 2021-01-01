@@ -11,21 +11,21 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityMainBinding
-    val editText = ObservableField<String>()
+    var editText = ObservableField<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.mainActivity = this
+        binding.activity = this
         binding.userProfile = UserData(IMAGE_URL, DEFAULT_USER_NAME)
     }
 
     private fun setProfileName(content: String) {
-        binding.userProfile = UserData(IMAGE_URL, content)
+        binding.userProfile = UserData(IMAGE_URL,content)
     }
 
-    fun changeUserNameEvent() {
-        setProfileName(editText.get() ?: DEFAULT_USER_NAME)
+    fun changeName(){
+        setProfileName(editText.get()?: DEFAULT_USER_NAME)
     }
 
     companion object {
